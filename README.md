@@ -11,7 +11,7 @@ Node.js >= 8.9.x/NPM
     $ git clone https://github.com/djgovani/Customize-DataTable.git
     ```
 
-* Move to api directory and run below command to install required packages.
+* Move to `api` directory and run below command to install required packages.
 
     ```
     npm install
@@ -28,3 +28,5 @@ Node.js >= 8.9.x/NPM
     ```
     npm start
     ```
+
+* Run `index.html` from the `app` directory.
