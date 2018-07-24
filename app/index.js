@@ -30,26 +30,6 @@ $("#uploadLogo").submit(function(e){
   });
 });
 
-// Add record
-$("#idForm").submit(function(e) {
-  $.modal.close();
-  let url = `${API_URL}/api/employees`;
-  $.ajax({
-     type: "POST",
-     url: url,
-     data: $("#idForm").serialize(), // serializes the form's elements.
-     success: function(data)
-     {
-        swal({
-          type: 'success',
-          title: 'Record has been added',
-          showConfirmButton: false,
-        },location.reload());
-     }
-   });
-  e.preventDefault(); // avoid to execute the actual submit of the form.
-});
-
 // Clear all the form fields
 function clean() {
   document.getElementById("name").value = '';
@@ -62,7 +42,6 @@ function clean() {
 
 // Edit Record
 function editRecord(id) {
-  $('#extn').attr('disabled',`true`);
   $('#ex1').modal('open');
   $('#idForm').attr('onsubmit',`record(${id})`);
 
@@ -110,6 +89,25 @@ function record(id) {
   }
 }
 
+// Add record
+$("#idForm").submit(function(e) {
+  $.modal.close();
+  let url = `${API_URL}/api/employees`;
+  $.ajax({
+     type: "POST",
+     url: url,
+     data: $("#idForm").serialize(), // serializes the form's elements.
+     success: function(data)
+     {
+        swal({
+          type: 'success',
+          title: 'Record has been added',
+          showConfirmButton: false,
+        },location.reload());
+     }
+   });
+  e.preventDefault(); // avoid to execute the actual submit of the form.
+});
 
 // deleteRecord
 function deleteRecord(did) {
