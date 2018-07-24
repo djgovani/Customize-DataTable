@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Customize DataTable</title>
+    <meta charset="utf-8">
+
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.jqueryui.min.css">
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- DataTable -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/ju/jq-3.3.1/jszip-2.5.0/dt-1.10.18/b-1.5.2/b-colvis-1.5.1/b-flash-1.5.2/b-html5-1.5.2/b-print-1.5.2/kt-2.4.0/r-2.2.2/sc-1.5.0/sl-1.2.6/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/ju/jq-3.3.1/jszip-2.5.0/dt-1.10.18/b-1.5.2/b-colvis-1.5.1/b-flash-1.5.2/b-html5-1.5.2/b-print-1.5.2/kt-2.4.0/r-2.2.2/sc-1.5.0/sl-1.2.6/datatables.min.js"></script>
+
+    <!-- Sweetalert2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.25.0/dist/sweetalert2.css" integrity="sha256-stHsuGitTxYOtTIUeR3YUaXYJ7FMU/PVHXbR/IuWItw=" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.25.0/dist/sweetalert2.all.min.js" integrity="sha256-W2Ho0szayF3Hmdf4AFu6seRUbidUQakeTxGRa/8z0UQ=" crossorigin="anonymous"></script>
+
+    <!-- pdfmake -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+
+
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+  </head>
+  <body>
+    <div data-role="main" class="ui-content">
+      <a href="#ex1" rel="modal:open" class="ui-btn ui-btn-inline ui-corner-all ui-icon-plus ui-btn-icon-left" id="addbtn" onclick="clean()">Add New Record</a>
+
+      <table>
+        <tr>
+          <td>
+            <div class="ui-container" style="width: 250px">
+              <form enctype= "multipart/form-data" id="uploadLogo" method="POST">
+                <input id="inputFileToLoad" type="file" name="fileLogo" />
+                <input type="submit" value="Upload Logo" name="submit">
+              </form>
+
+            </div>
+          </td>
+          <td>
+            <div class="output">
+              <img id="logo" width="150px" alt="Logo will be display here"><br>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <div id="ex1" class="modal" class="ui-content" style="width:100%;">
+        <form id="idForm" onsubmit="record()">
+          <div>
+            <h3>Employee information</h3>
+            <label>Name</label>
+            <input type="text" name="name" id="name" placeholder="Name">
+            <label>Postion</label>
+            <input type="text" name="position" id="position" placeholder="Postion">
+            <label>Salary</label>
+            <input type="number" name="salary" id="salary" placeholder="Salary">
+            <label>Start Date</label>
+            <input type="date" name="start_date" id="start_date" placeholder="start_date">
+            <label>Office</label>
+            <input type="text" name="office" id="office" placeholder="Office">
+            <label>Extn</label>
+            <input type="text" name="extn" id="extn" placeholder="Extn">
+            <input type="submit" data-inline="true" id="add" value="Add">
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <table id="example" class="display" style="width:100%">
+      <thead>
+        <tr>
+          <td><b>Name</b></td>
+          <td><b>Position</b></td>
+          <td><b>Office</b></td>
+          <td><b>Extn.</b></td>
+          <td><b>Start date</b></td>
+          <td><b>Salary</b></td>
+          <td><b>Action</b></td>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td><b>Name</b></td>
+          <td><b>Position</b></td>
+          <td><b>Office</b></td>
+          <td><b>Extn.</b></td>
+          <td><b>Start date</b></td>
+          <td><b>Salary</b></td>
+          <td><b>Action</b></td>
+        </tr>
+      </tfoot>
+     </table>
+  </body>
+  <script type="text/javascript" src="./index.js"></script>
+</html>
